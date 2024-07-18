@@ -1,0 +1,117 @@
+<style>
+  body {
+  font-family: calibri, sans-serif;
+  background: #1b1b1b;
+  color: white;
+  code {
+    background: #5d5d5d;
+  }
+  p,
+  ul li {
+    line-height: 1.5em;
+  }
+  ul {
+    list-style-type: square;
+    li {
+      font-weight: 600;
+    }
+    ul {
+      list-style-type: circle;
+      li {
+        font-weight: 400;
+      }
+    }
+  }
+}
+</style>
+
+<h1>Buddy shortcode doc for pomi</h1>
+<h2>Shortcode</h2>
+<p>
+  <code>[buddy]</code>
+</p>
+<p>The shortcode will work on its own without parameters, but will default to using the season interruption form with no <code>attributionId</code> option value included. The config file's subdomain ("embed" or "staging.embed"), the <code>stage</code> option, and the <code>partnerID</code> option will all toggle based on whether the offer form is output on the production domain (getpomi.com) or a non-production domain.</p>
+<h2>Attributes (Parameters)</h2>
+<p>To use a shortcode attribute, use the following syntax: <code>[buddy attribute="value"]</code>.</p>
+<p><em>Example:</em> <code>[buddy form="pp"]</code>.</p>
+<p>You may use any number of attributes within a single shortcode, using the same syntax as above.</p>
+<p><em>Example:</em> <code>[buddy form="pp" stage-stg="TESTING" aid="partner-xyz"]</code>.</p>
+<ul>
+  <li>
+    form
+    <ul>
+      <li>Currently, <code>form="pp"</code> and <code>form="si"</code> are the only accepted values. <code>form="pp"</code> will output the accident coverage form ("player protect") and the <code>form="si"</code> will output the season interruption form.</li>
+      <li>No <code>form</code> attribute, or an attribute value that is not recognized, will default to the season interruption form.</li>
+      <li>The <code>attributionId</code> is not included in the output of these forms. A separate shortcode attribute is used to output this option (see below).</li>
+    </ul>
+  </li>
+  <li>
+    stage-prd
+    <ul>
+      <li>Use this attribute to override the default <code>stage</code> option value for the production domain (getpomi.com)</li>
+      <li>The default value is <code>PRODUCTION</code></li>
+    </ul>
+  </li>
+  <li>
+    stage-stg
+    <ul>
+      <li>Use this attribute to overridee the default <code>stage</code> option value for all non-production domains</li>
+      <li>The default value is <code>STAGING</code></li>
+    </ul>
+  </li>
+  <li>
+    config-path
+    <ul>
+      <li>Use this attribute to override the default path for the config file.</li>
+      <li>Default value for the accident form is <code>pomi/gaig-pomi-accident-config</code></li>
+      <li>Default value for the season interruption form is <code>si/gaig-gaig-si-config</code></li>
+    </ul>
+  </li>
+  <li>
+    pid-prd
+    <ul>
+      <li>Use this attribute to override the default <code>partnerID</code> option on the production domain (getpomi.com).</li>
+      <li>Default value for both forms is <code>p-19g6jlnnerv7e</code></li>
+    </ul>
+  </li>
+  <li>
+    pid-stg
+    <ul>
+      <li>Use this attribute to override the default <code>partnerID</code> option on non-production domains.</li>
+      <li>Default value for the accident form <strong>with no</strong> <code>attributionId</code> value set is <code>p-test-f7vrennlj</code></li>
+      <li>Default value for the accident form <strong>with</strong> an <code>attributionId</code> set is <code>p-buddytest</code></li>
+      <li>Default value for the season interruption form is <code>p-buddytest</code></li>
+    </ul>
+  </li>
+  <li>
+    ion
+    <ul>
+      <li>Use this attribute to override the default <code>ion</code> option value</li>
+      <li>Default value for the accident form is <code>GAIG_POMI_ACCIDENT</code></li>
+      <li>Default value for the season interruption form is <code>GAIG_GAIG_SI</code></li>
+    </ul>
+  </li>
+  <li>
+    aid
+    <ul>
+      <li>Use this attribute to add an <code>attributionId</code> option value</li>
+      <li>Neither form includes an <code>attributionId</code> option value by default.</li>
+    </ul>
+  </li>
+  <li>
+    theme
+    <ul>
+      <li>Use this attribute to override the default theme</li>
+      <li>Default value for the accident form is <code>themeBase</code> (i.e. <code>options.theme = config.<strong>themeBase</strong></code>)</li>
+      <li>Default value for the season interruption form is <code>themePomi</code> (i.e. <code>options.theme = config.<strong>themePomi</strong></code>)</li>
+    </ul>
+  </li>
+  <li>
+    events
+    <ul>
+      <li>Use this attribute to override the default event set</li>
+      <li>Default value for the accident form is <code>userEvents</code> (i.e. <code>options.onUserEvent = config.<strong>userEvents</strong></code>)</li>
+      <li>Default value for the season interruption form is <code>pomiUserEvents</code> (i.e. <code>options.onUserEvent = config.<strong>pomiUserEvents</strong></code>)</li>
+    </ul>
+  </li>
+</ul>
